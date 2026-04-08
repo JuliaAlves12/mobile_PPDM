@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/pages/messages.dart';
 
 List nomes = [
   'seu story',
@@ -12,6 +13,7 @@ List nomes = [
   'Mariam',
   'Kaique',
 ];
+
 List images = [
   'https://images.unsplash.com/photo-1775563622936-2bac8f284416?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://images.unsplash.com/photo-1774860390220-5f568d607636?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -53,7 +55,12 @@ class Home extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.chat_bubble_outline, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Mensagens()),
+              );
+            },
           ),
         ],
       ),
@@ -185,11 +192,20 @@ class Home extends StatelessWidget {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Busca'),
-          BottomNavigationBarItem(icon: Icon(Icons.movie_outlined),label: 'Reels',),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined),label: 'Loja',),
-          BottomNavigationBarItem(icon: CircleAvatar(radius: 12, backgroundImage: NetworkImage(images[0]),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.movie_outlined),
+            label: 'Reels',
           ),
-          label: 'Perfil',
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: 'Loja',
+          ),
+          BottomNavigationBarItem(
+            icon: CircleAvatar(
+              radius: 12,
+              backgroundImage: NetworkImage(images[0]),
+            ),
+            label: 'Perfil',
           ),
         ],
       ),
