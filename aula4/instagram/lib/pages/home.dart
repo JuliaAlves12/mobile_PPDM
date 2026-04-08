@@ -180,6 +180,19 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Busca'),
+          BottomNavigationBarItem(icon: Icon(Icons.movie_outlined),label: 'Reels',),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined),label: 'Loja',),
+          BottomNavigationBarItem(icon: CircleAvatar(radius: 12, backgroundImage: NetworkImage(images[0]),
+          ),
+          label: 'Perfil',
+          ),
+        ],
+      ),
     );
   }
 }
