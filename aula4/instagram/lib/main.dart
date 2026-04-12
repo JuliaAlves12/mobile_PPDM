@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/pages/home.dart';
 
-
 void main() {
-  runApp(Instagram());
+  runApp(const Instagram());
 }
 
 class Instagram extends StatelessWidget {
@@ -14,8 +13,8 @@ class Instagram extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Instagram',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: Home(),
+      theme: ThemeData.light(),
+      home: const Home(), 
     );
   }
 }

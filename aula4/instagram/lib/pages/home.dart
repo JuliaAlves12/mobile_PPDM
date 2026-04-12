@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/pages/messages.dart';
+import 'package:instagram/pages/profile.dart';
 
 List nomes = [
   'seu story',
@@ -15,7 +16,7 @@ List nomes = [
 ];
 
 List images = [
-  'https://images.unsplash.com/photo-1775563622936-2bac8f284416?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://plus.unsplash.com/premium_photo-1692439065073-0c6c69d4bb66?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://images.unsplash.com/photo-1774860390220-5f568d607636?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://images.unsplash.com/photo-1774991061995-9bef4c333de4?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://plus.unsplash.com/premium_photo-1674777843203-da3ebb9fbca0?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -36,7 +37,8 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
+        elevation: 0,
+        title: const Text(
           'Instagram',
           style: TextStyle(
             color: Colors.black,
@@ -46,19 +48,19 @@ class Home extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.add_box_outlined, color: Colors.black),
+            icon: const Icon(Icons.add_box_outlined, color: Colors.black),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.favorite_border, color: Colors.black),
+            icon: const Icon(Icons.favorite_border, color: Colors.black),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.chat_bubble_outline, color: Colors.black),
+            icon: const Icon(Icons.chat_bubble_outline, color: Colors.black),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Mensagens()),
+                MaterialPageRoute(builder: (context) => const Messages()),
               );
             },
           ),
@@ -67,12 +69,13 @@ class Home extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // ÁREA DOS STORIES
             SizedBox(
               width: double.infinity,
               height: 110,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                physics: AlwaysScrollableScrollPhysics(),
+                physics: const AlwaysScrollableScrollPhysics(),
                 itemCount: nomes.length,
                 itemBuilder: (context, index) {
                   final itemnomes = nomes[index];
@@ -80,19 +83,19 @@ class Home extends StatelessWidget {
                   return Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.all(8),
+                        margin: const EdgeInsets.all(8),
                         width: 70,
                         height: 70,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           gradient: LinearGradient(
                             colors: [Colors.yellow, Colors.red, Colors.purple],
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(3),
+                          padding: const EdgeInsets.all(3),
                           child: Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.white,
                             ),
@@ -102,12 +105,13 @@ class Home extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Text(itemnomes, style: TextStyle(fontSize: 12)),
+                      Text(itemnomes, style: const TextStyle(fontSize: 12)),
                     ],
                   );
                 },
               ),
             ),
+            // ÁREA DO POST
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -117,12 +121,12 @@ class Home extends StatelessWidget {
                   ),
                   title: Text(
                     nomes[2],
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  trailing: Icon(Icons.more_vert),
+                  trailing: const Icon(Icons.more_vert),
                 ),
                 Padding(
-                  padding: EdgeInsetsGeometry.all(5),
+                  padding: const EdgeInsets.all(5),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
@@ -136,26 +140,26 @@ class Home extends StatelessWidget {
                 Row(
                   children: [
                     IconButton(
-                      icon: Icon(Icons.favorite_border),
+                      icon: const Icon(Icons.favorite_border),
                       onPressed: () {},
                     ),
                     IconButton(
-                      icon: Icon(Icons.chat_bubble_outline),
+                      icon: const Icon(Icons.chat_bubble_outline),
                       onPressed: () {},
                     ),
                     IconButton(
-                      icon: Icon(Icons.send_outlined),
+                      icon: const Icon(Icons.send_outlined),
                       onPressed: () {},
                     ),
-                    Spacer(),
+                    const Spacer(),
                     IconButton(
-                      icon: Icon(Icons.bookmark_border),
+                      icon: const Icon(Icons.bookmark_border),
                       onPressed: () {},
                     ),
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -165,15 +169,18 @@ class Home extends StatelessWidget {
                             backgroundImage: NetworkImage(images[3]),
                             radius: 11,
                           ),
+                          const SizedBox(width: 2),
                           CircleAvatar(
                             backgroundImage: NetworkImage(images[7]),
                             radius: 11,
                           ),
+                          const SizedBox(width: 2),
                           CircleAvatar(
                             backgroundImage: NetworkImage(images[1]),
                             radius: 11,
                           ),
-                          Text(
+                          const SizedBox(width: 5),
+                          const Text(
                             'Curtido por Nicolas e outras pessoas',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
@@ -189,23 +196,30 @@ class Home extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        onTap: (index) {
+          if (index == 4) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Profile()),
+            );
+          }
+        },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Busca'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.movie_outlined),
-            label: 'Reels',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
-            label: 'Loja',
-          ),
+          const BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: ''),
+          const BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
+          const BottomNavigationBarItem(icon: Icon(Icons.movie_outlined), label: ''),
+          const BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined), label: ''),
           BottomNavigationBarItem(
             icon: CircleAvatar(
               radius: 12,
-              backgroundImage: NetworkImage(images[0]),
+              backgroundImage: NetworkImage(
+                  'https://plus.unsplash.com/premium_photo-1692439065073-0c6c69d4bb66?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
             ),
-            label: 'Perfil',
+            label: '',
           ),
         ],
       ),
