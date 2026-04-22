@@ -6,8 +6,8 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 60,
-      backgroundImage: AssetImage("images/cafe_logo_2.jpg"),
+      radius: 100,
+      backgroundImage: AssetImage("images/pato.webp"),
       backgroundColor: Colors.transparent,
     );
   }
