@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:honeycoffee/components/appbarcustom.dart';
 import 'package:honeycoffee/components/botao.dart';
 import 'package:honeycoffee/components/logo.dart';
 import 'package:honeycoffee/components/titulo.dart';
@@ -10,7 +11,7 @@ class Telainicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("")),
+      appBar: Appbarcustom(nome: "Produtos"),
       body: Center(
         child: Column(
           children: [
