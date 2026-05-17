@@ -1,27 +1,39 @@
 import 'package:flutter/material.dart';
 
 class Titulo extends StatelessWidget {
-  String texto;
+  final String texto;
 
   Titulo({super.key, required this.texto});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity, 
-      color: Colors.white,
-      padding: const EdgeInsets.symmetric(
-        vertical: 25,
-      ), 
-      child: Text(
-        texto,
-        textAlign: TextAlign.center, 
-        style: TextStyle(
-          fontSize: 28,
-          fontWeight: FontWeight.bold,
-          color: Color.fromARGB(255, 184, 64, 104),
-          letterSpacing: 2,
-          fontFamily: 'Serif',
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Center(
+        child: Container(
+          width: 250, 
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15), 
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade400,
+                blurRadius: 8,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 15),
+          child: Text(
+            texto.toUpperCase(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 184, 64, 104),
+              letterSpacing: 4,
+            ),
+          ),
         ),
       ),
     );
